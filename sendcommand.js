@@ -13,13 +13,15 @@ module.exports = function(RED) {
 			msg.xiaomiId = config.xiaomiId;
 			msg.address = config.address;
 			msg.model = config.model;
+			msg.country = config.country;
 
 			const device = mihome.device({
 				id: config.xiaomiId, //'358737912', // required, device id
 				model: config.model, //'zhimi.airpurifier.vb2', // required, device model
 				address: config.address, //'192.168.80.119', // miio-device option, local ip address
 				token: config.token, //'300723076d1f78e2ec7d0607fbe60261', // miio-device option, device token
-				refresh: 30000 // miio-device option, device properties refresh interval in ms
+				refresh: 30000, // miio-device option, device properties refresh interval in ms
+				country: config.country
 			});
 			async function af() {
 				try {
