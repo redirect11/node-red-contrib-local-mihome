@@ -7,7 +7,7 @@ module.exports = function(RED) {
 			// mihome part starts here
 			//var payload = msg.payload;
 			const mihome = require('node-mihome');
-			mihome.miioProtocol.init();
+			mihome.miCloudProtocol.init();
 			//add config properties from node to msg
 			msg.name = config.name;
 			msg.xiaomiId = config.xiaomiId;
@@ -31,7 +31,7 @@ module.exports = function(RED) {
 						var setterMethodName = key;
 						//console.log('setting "' + setterMethodName + '" to "' + msg.payload[key] +'"')
 						try {
-    						await device.miotSetProperty(setterMethodName, msg.payload[key]);
+    						await device.miioCall(setterMethodName, msg.payload[key]);
   						} catch(exception) {
     						node.warn(`Mihome Exception: Device: ${device.id}, IP: ${device.address} -> ${exception.message}`);
 							//msg.jobstatus = 'failed';
