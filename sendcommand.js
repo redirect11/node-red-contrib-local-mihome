@@ -29,7 +29,7 @@ module.exports = function(RED) {
 					
 					Object.keys(msg.payload).forEach(async function(key) {
 						var setterMethodName = key;
-						//console.log('setting "' + setterMethodName + '" to "' + msg.payload[key] +'"')
+						console.log('setting "' + setterMethodName + '" to "' + msg.payload[key] +'"')
 						try {
     						await device.miioCall(setterMethodName, msg.payload[key]);
   						} catch(exception) {
