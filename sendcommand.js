@@ -7,7 +7,7 @@ module.exports = function(RED) {
 			// mihome part starts here
 			//var payload = msg.payload;
 			const mihome = require('node-mihome');
-			mihome.miCloudProtocol.init();
+			mihome.miioProtocol.init();
 			//add config properties from node to msg
 			msg.name = config.name;
 			msg.xiaomiId = config.xiaomiId;
