@@ -29,7 +29,7 @@ module.exports = function(RED) {
 					await device.on('properties', (data) => {
 						msg.payload = data;
 						node.send(msg);
-						device.destroy();
+						//device.destroy();
 					});
 					await device.setPower(true); //takes about 5 seconds
 					
